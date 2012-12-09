@@ -1,132 +1,172 @@
 public class List {
     Node start;
-    List(){
+    List() {
         start = null;
     }
-    List(Node a){
+    List(Node a) {
         start = a;
     }
-    public void insertBeg(int c){
-        // insert a Node into the beginning of the list
-        Node nptr= new Node(c);
-        if( start==null ) {
-            start = nptr;
+    void insertBeg( int a ) {
+        Node ptr = new Node(a);
+        if( start == null ) {
+            start = ptr;
         }
         else {
-            nptr.link=start;
-            start = nptr;
+            ptr.link = start;
+            start = ptr;
         }
     }
-    public void insertEnd(int c){
-        // insert a node in the end of the list
-        Node nptr = new Node(c);
-        if(start == null) {
-            start=nptr;
+    void insertEnd( int a ) {
+        Node ptr = new Node(a);
+        if(start == null ) {
+            start = ptr;
         }
         else {
-            Node ptr = start;
-            while( ptr.link!=null )
-                ptr=ptr.link;
-            ptr.link=nptr;
+            Node nptr = start;
+            while(nptr.link!=null){
+                nptr = nptr.link;
+            }
+            nptr.link = ptr;
         }
     }
-    public void insertMiddle( int c, int pos ){
-        Node nptr= new Node(c);
-        if(start==null)
-            start = nptr;
-        else{
-            Node ptr = start,prev = start;
+    void insertAtPos( int a, int pos ) {
+        Node ptr = new Node(a);
+        if( pos == 1 )
+            start = ptr;
+        else {
+            Node nptr = start;
+            Node prev = start;
             int count = 1;
-            while( ptr!=null && count<=pos ){
-                prev=ptr;
-                ptr=ptr.link;
+            while( nptr!=null && count<pos){
+                prev = nptr;
+                nptr = nptr.link;
                 count++;
             }
-            if( ptr==null )
-                System.out.println("Position not present in list");
+            if(nptr == null)
+                System.out.println("Position not present");
+            else {
+                prev.link = ptr;
+                ptr.link = nptr;
+            }
+        }
+    }
+    void insertSorted(int x) {
+        Node ptr = new Node(x);
+        if(start == null){
+            start = ptr;
+        }
+        else if( x<start.val) {
+            ptr.link = start;
+            start = ptr;
+        }
+        else {
+            Node nptr = start;
+            Node prev = start;
+            while( nptr!=null && x>nptr.val ){
+                prev = nptr;
+                nptr = nptr.link;
+            }
+            prev.link = ptr;
+            ptr.link = nptr;
+        }
+    }
+    void deleteVal(int x) {
+        Node ptr = new Node(x);
+        if(start.val == x){
+            start = start.link;
+        }
+        else {
+            Node nptr, prev;
+            nptr = prev = start;
+            while(nptr!=null && nptr.val != x) {
+                prev = nptr;
+                nptr = nptr.link;
+            }
+            if(nptr == null )
+                System.out.println("Value not present");
             else{
-                prev.link=nptr;
-                nptr.link=ptr;
+                prev.link = nptr.link;
             }
         }
     }
-    public void createSortedList( int x ){
-        Node nptr= new Node(x);
-        if( start==null )
-            start = nptr;
-        else if(x<start.val){
-            nptr.link=start;
-            start = nptr;
-        }
-        else{
-            Node ptr=start,prev=start;
-            while( ptr!=null && x>ptr.val ){
-                prev=ptr;
-                ptr=ptr.link;
-            }
-            prev.link=nptr;
-            nptr.link=ptr;
-        }
-    }
-    public void deletePosition(int pos){
+    void deletePos(int pos){
         if(pos==1)
-            start=start.link;
+            start = start.link;
         else{
-            Node ptr=start,prev=start;
-            int count=1;
-            while(ptr!=null && count<=pos){
-                prev=ptr;
-                ptr=ptr.link;
-                count++;
+            Node nptr, prev;
+            nptr = prev =start;
+            int count = 1;
+            while(nptr!=null && count < pos){
+                prev = nptr;
+                nptr = nptr.link;
+                count ++;
             }
-            if(ptr==null)
-                System.out.println("Position not present in list");
-            else{
-                prev.link=ptr.link;
-            }
-        }
-    }
-    public void deleteValue(int x){
-        if(start.val==x)
-            start=start.link;
-        else{
-            Node ptr =start, prev=start;
-            while(ptr!=null && ptr.val!=x){
-                prev=ptr;
-                ptr=ptr.link;
-            }
-            if(ptr==null)
-                System.out.println("Value not found");
+            if(nptr == null)
+                System.out.println("Position not present");
             else
-                prev.link=ptr.link;
+                prev.link = nptr.link;
         }
     }
-    public void display(){
-        Node ptr=start;
-        while(ptr!=null){
-            System.out.print(ptr.val+"--->");
-            ptr=ptr.link;
+    void display(){
+        Node ptr = start;
+        while(ptr != null){
+            System.out.println(ptr.val+";");
+            ptr = ptr.link;
         }
     }
-    public void concat(List a, List b){
-        Node ptr= a.start;
+    int search(int a){
+        int pos = -1;
+        if(start.val == a){
+            pos = 1;
+        }
+        else{
+            Node ptr = start;
+            int count =1;
+            while(ptr!=null){
+                if(ptr.val == a){
+                    pos = count;
+                    break;
+                }
+                ptr = ptr.link;
+                count ++;
+            }
+        }
+        return pos;
+    }
+    void concat(List a, List b){
+        Node ptr = a.start;
         while(ptr.link!=null)
-            ptr=ptr.link;
-        ptr.link=b.start;
+            ptr= ptr.link;
+        ptr.link = b.start;
     }
-    public void split( List a,List b,int pos){
-        int c=1;
-        Node ptr=a.start,prev=start;
-        while(ptr!=null && c<pos){
-            prev=ptr;
-            ptr=ptr.link;
-            c++;
+    void split( List m, List n, int pos){
+        Node ptr = m.start;
+        int count =1;
+        Node prev = new Node();
+        while( ptr!=null && count<pos){
+            count++;
+            prev= ptr;
+            ptr =ptr.link;
         }
         if(ptr==null)
-            System.out.println("Position not present in list");
-        else{
-            prev.link=null;
-            b.start=ptr;
+            System.out.println("Position not present");
+        else {
+            prev.link = null;
+            n.start = ptr;
+        }
+    }
+    void reverse(List m){
+        Node ptr = start;
+        while(ptr!=null){
+            Node nptr = new Node(ptr.val);
+            if(m.start == null){
+                nptr.link = null;
+            }
+            else{
+                nptr.link = m.start;
+                m.start = nptr.link;
+            }
+            ptr = ptr.link;
         }
     }
 }
