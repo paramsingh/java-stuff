@@ -22,4 +22,4 @@ public class PracticalSpiral {
                         k++;
                     }
                     else {
-                        
+                       //more needs to be written 
