@@ -1,5 +1,6 @@
+import java.util.Scanner;
 class MergeSort{
-    void recMergeSort( int a[], int lower, int upper ){
+    static void recMergeSort( int a[], int lower, int upper ){
         if(lower==upper)
             return;
         else{
@@ -9,7 +10,26 @@ class MergeSort{
             merge(a,lower,mid,upper);
         }
     }
-    //Merge function needs to be written
+    static void merge(int a[] ,int lower, int mid , int upper){
+        int i= lower;
+        int j= mid+1;
+        int n = upper-lower + 1;
+        int b[] = new int[n];
+        int p=0;
+        while( i<=mid && j<=upper ){
+            if ( a[i]>=a[j] )
+                b[p++] = a[i++];
+            else
+                b[p++] = a[j++];
+        }
+        while( i<=mid ) {
+            b[p++] =a[i++];
+        }
+        while( j<=upper ) {
+            b[p++]=a[j++];
+        }
+        a=b;
+    }
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the size of the array");
@@ -21,8 +41,12 @@ class MergeSort{
             a[i] = in.nextInt();
         }
         System.out.println("Original array is: ");
-        for(i: a){
-            System.out.println(i);
+        for(int j: a){
+            System.out.println(j);
         }
+        recMergeSort(a, 0, size-1);
+        System.out.println("Sorted Array is : ");
+        for( int j:a)
+            System.out.println(j);
     }
 }

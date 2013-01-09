@@ -18,7 +18,7 @@ class Cylinder extends Circle {
     public static void main(String[] args){
         Cylinder a = new Cylinder(5,10);
         System.out.println("Base area = "+ a.findArea()+" sq.units");
-        System.out.println("Curved Surface Area = "+ a.findCSA()+" sq.units") - ;
+        System.out.println("Curved Surface Area = "+ a.findCSA()+" sq.units");
         System.out.println("Total Area = "+a.findTotalArea()+" sq.units");
     }
 }   
