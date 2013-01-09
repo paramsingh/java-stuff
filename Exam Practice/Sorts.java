@@ -2,8 +2,9 @@ public class Sorts {
     //class to store all the sorting algorithms i need to know
 
     //selection sort
-    void selection_sort(int a[]){
+    static void selection_sort(int a[]){
         int l = a.length;
+        int i,j;
         for(i=0;i<l;i++){
             int pos = i;
             int smallest = a[i];
@@ -23,14 +24,14 @@ public class Sorts {
     }
 
     //insertion sort
-    void insertion_sort(int a[]){
+    static void insertion_sort(int a[]){
         int i,val,last;
         int l = a.length;
         for(i=0;i<l;i++){
             last = i;
             val = a[i];
             while( last>0 && val<a[last-1] ){
-                a[last-1] = a[last];
+                a[last] = a[last-1];
                 last --;
             }
             a[last] = val;
@@ -38,10 +39,10 @@ public class Sorts {
     }
 
     //bubble sort
-    void bubble_sort(int a[]){
+    static void bubble_sort(int a[]){
         int i,j,t,l=a.length;
-        for(int i=0;i<l;i++){
-            for(j=1;j<(n-i);j++){
+        for(i=0;i<l;i++){
+            for(j=1;j<(l-i);j++){
                 if(a[j-1]>a[j]){
                     t=a[j];
                     a[j]=a[j-1];
@@ -51,5 +52,12 @@ public class Sorts {
         }
     }
     
+    public static void main(String[] args){
+        int a[] = {9,8,7,5,4,3,3,1};
+        insertion_sort(a);
+        for(int i: a){
+            System.out.println(i);
+        }
+    }
 }
 
