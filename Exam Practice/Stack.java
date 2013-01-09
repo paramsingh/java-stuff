@@ -22,7 +22,7 @@ public class Stack {
         if(top==-1) // if stack is empty
             System.out.println("Stack is empty");
         else {
-            a[top]=0;
+            a[top--]=0;
         }
     }
     void display(){
