@@ -9,8 +9,21 @@ class Output {
             System.out.print(n.charAt(p));
         }
     }
+    static int fun(int a, int b, int n){
+        //This function came in preboards. Had to find the return value
+        //for fun(4,7,5) and fun(2,3,5)
+        if(n!=1)
+            return a+ fun(b,a+b, n-1);
+        else 
+            return a;
+    }
     public static void main(String[] args){
+        //printing output of output()
         output("SCIENCE",5);
+        System.out.println("\n");
+        //printing output of fun()
+        System.out.println(fun(4,7,5));
+        System.out.println(fun(2,3,5));
     }
 }
 
@@ -25,3 +38,8 @@ class Output {
  * 
  * SCIENC
  */
+ 
+ /*
+  * Output for fun(4,7,5) should be 69
+  * Output for fun(2,3,5) should be 31
+  */
