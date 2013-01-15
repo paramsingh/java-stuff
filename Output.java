@@ -24,6 +24,9 @@ class Output {
         //printing output of fun()
         System.out.println(fun(4,7,5));
         System.out.println(fun(2,3,5));
+        //printing a random number between 1 & 100
+        System.out.println("Random number");
+        System.out.println((int)(Math.random()*100));
     }
 }
 
