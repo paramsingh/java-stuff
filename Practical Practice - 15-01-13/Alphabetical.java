@@ -15,14 +15,10 @@ public class Alphabetical {
         //Now sort the array words using any sort algorithm
         int l = words.length;
         String temp;
-        for(int i=0; i<l; i++){
-            for(j=i+1; j<l; j++){
-                if( words[i].compareTo(words[j]) > 0 ){
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                }
-            }
+        int i,j;
+        for(i=0; i<l; i++){
+            //Sorting needs to be done
+            //wasn't working earlier
         }
         
         //Add the sorted string to another variable which
@@ -33,3 +29,4 @@ public class Alphabetical {
         }
         return alphabetical;
     }
+}
