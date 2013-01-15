@@ -20,6 +20,8 @@ class TypeCheck {
             System.out.println("Integer");
         else if( isFloat(s) )
             System.out.println("Float");
+        else if( isDate(s) )
+            System.out.println("Date");
         else
             System.out.println("Text");
     }
@@ -53,5 +55,16 @@ class TypeCheck {
         }
         return true;
     }
-    //need to write a check function for checking dates
+    public static boolean isDate( String s ){
+        if( s.length() != 10 )
+            return false;
+        for( int i =0; i<s.length(); i++){
+            char ch = s.charAt(i);
+            if( ch!='-' && i==2 && i==5 )
+                return false;
+            if( i!=2 && i!=5 && !Character.isDigit(ch) )
+                return false;
+        }
+        return true;
+    }
 }
