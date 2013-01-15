@@ -8,6 +8,11 @@ public class RemoveRepeated {
         System.out.println(removeRepeated(userInput));
     }
     public static String removeRepeated( String word ){
+        /** Remove all the characters that are repeated in the parameter
+         * For example : 
+         * Input : ABBBA
+         * Output: AB
+         */ 
         //looping variable
         int i;
         //length of the word
