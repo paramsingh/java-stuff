@@ -16,4 +16,7 @@ public class Anagrams {
         String words[] = content.split(" ");
     }
     public static boolean isAnagram(String a, String b){
+        a = a.toUpperCase();
+        b = b.toUpperCase();
+        for( char c ='A'; c<='Z';c++)
         
