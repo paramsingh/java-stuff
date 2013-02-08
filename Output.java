@@ -27,6 +27,11 @@ class Output {
         //printing a random number between 1 & 100
         System.out.println("Random number");
         System.out.println((int)(Math.random()*100));
+        //check how substring() works
+        System.out.println("Fuck".substring(0,3));
+        String s = "Fuck Fuck Fuck";
+        s =s.replaceAll("uck","***");
+        System.out.println(s);
     }
 }
 
