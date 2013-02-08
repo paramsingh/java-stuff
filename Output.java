@@ -30,8 +30,7 @@ class Output {
         //check how substring() works
         System.out.println("Fuck".substring(0,3));
         String s = "Fuck Fuck Fuck";
-        s =s.replaceAll("uck","***");
-        System.out.println(s);
+        System.out.println(s.indexOf("uck"));
     }
 }
 
