@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Encryption {
     public static void main( String[] args ){
+        //10181179401 --> 104 97 118 101 --> have
         Scanner in = new Scanner( System.in );
         System.out.println("Input the stuff");
         String input = in.nextLine();
