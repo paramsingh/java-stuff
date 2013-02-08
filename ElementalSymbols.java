@@ -4,7 +4,7 @@ public class ElementalSymbols {
     public static void main( String[] args ){
         Scanner in = new Scanner( System.in );
         System.out.println("Enter the string.");
-        String input = in.nextLine();
+        String input = in.nextLine().toLowerCase();
         String[] elements = {"Ac","Ag","Al","Am","Ar","As","At","Au",
         "B","Ba","Be","Bh","Bi","Bk","Br","C","Ca","Cd","Ce","Cf","Cl",
         "Cm","Cn","Co","Cr","Cs","Cu","Db","Ds","Dy","Er","Es","Eu","F",
