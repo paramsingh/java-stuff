@@ -7,13 +7,12 @@ public class Censor {
         Scanner in = new Scanner( System.in );
         System.out.println("Enter the text to be censored.");
         String text = in.nextLine();
-        String s;
-        while( (s=br.readLine())!=null ){
-            censor( text, s );
-        }
+        String words[] = text.split(" ");
+        for( int i=0;i<words.length;i++ ){
         System.out.println(text);
     }
-    public static void censor(String text, String word){
+    public static String censor(String text, String word){
+        //text is the sentence which needs to be censored
         
     }
 }
