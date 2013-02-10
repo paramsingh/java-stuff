@@ -54,10 +54,20 @@ public class Sorts {
     
     public static void main(String[] args){
         int a[] = {9,8,7,5,4,3,3,1};
-        insertion_sort(a);
+        for( int i =0;i<a.length;i++ ){
+            for( int j=0;j<a.length;j++){
+                if( a[i]<a[j] ){
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
         for(int i: a){
             System.out.println(i);
         }
+        
+        
     }
 }
 
