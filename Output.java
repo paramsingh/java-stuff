@@ -31,6 +31,7 @@ class Output {
         System.out.println("Fuck".substring(0,3));
         String s = "Fuck Fuck Fuck";
         System.out.println(s.indexOf("uck"));
+        System.out.println("fuck".compareTo("guck"));
     }
 }
 
