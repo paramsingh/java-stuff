@@ -1,3 +1,4 @@
+import java.util.Scanner;
 class Output {
     static void output(String n, int p){
         //Function came in ISC 2012. Had to find the output for ("SCIENCE",5)
@@ -32,6 +33,13 @@ class Output {
         String s = "Fuck Fuck Fuck";
         System.out.println(s.indexOf("uck"));
         System.out.println("fuck".compareTo("guck"));
+        //Scanner check
+        Scanner in = new Scanner( System.in );
+        System.out.println("Enter 1");
+        int n = in.nextInt();
+        System.out.println("Enter 2");
+        int a = in.nextInt();
+        System.out.println(n+" "+a);
     }
 }
 
