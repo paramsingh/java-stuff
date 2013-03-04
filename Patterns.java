@@ -8,8 +8,8 @@ public class Patterns {
          * 44445
          * 55555
          */
-         int i, temp,j;
-         for( i=1;i<=n;i++ ){
+        int i, temp,j;
+        for( i=1;i<=n;i++ ){
             for( j=1;j<i;j++ )
                 System.out.print(i);
             for( temp=i;temp<=n;temp++ )
